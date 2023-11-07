@@ -36,7 +36,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyBooksComposeAppTheme {
-                BookList(books)
+                MyBooksApp()
+//                BookList(books)
             }
         }
     }
@@ -44,7 +45,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun BookList(
-    books: List<Book>
+    books: List<Book>,
+    modifier: Modifier = Modifier,
 ) {
     Surface(
         color = MaterialTheme.colorScheme.background,
