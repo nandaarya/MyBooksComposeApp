@@ -1,32 +1,87 @@
 package com.example.mybookscomposeapp.ui.screen.home
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SearchBar
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mybookscomposeapp.R
 import com.example.mybookscomposeapp.data.Book
-import com.example.mybookscomposeapp.data.books
+import com.example.mybookscomposeapp.data.Repository
+import com.example.mybookscomposeapp.ui.ViewModelFactory
 import com.example.mybookscomposeapp.ui.components.BookItem
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    viewModel: HomeViewModel = viewModel(factory = ViewModelFactory(Repository()))
+) {
+    val filteredBooks by viewModel.filteredBooks.collectAsState()
+    val query by viewModel.query
     Column {
-        Text(text = "Fitur Search")
-        BookList(books = books)
+        SearchBar(
+            query = query,
+            onQueryChange = viewModel::search,
+            modifier = Modifier.background(MaterialTheme.colorScheme.primary)
+        )
+        BookList(books = filteredBooks)
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
+@Composable
+fun SearchBar(
+    query: String,
+    onQueryChange: (String) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    SearchBar(
+        query = query,
+        onQueryChange = onQueryChange,
+        onSearch = {},
+        active = false,
+        onActiveChange = {},
+        leadingIcon = {
+            Icon(
+                imageVector = Icons.Default.Search,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        },
+        placeholder = {
+            Text(stringResource(R.string.search_book))
+        },
+        shape = MaterialTheme.shapes.large,
+        modifier = modifier
+            .padding(16.dp)
+            .fillMaxWidth()
+            .heightIn(min = 48.dp)
+    ) {
     }
 }
 
 @Composable
 fun BookList(
     books: List<Book>,
-    modifier: Modifier = Modifier,
 ) {
     Surface(
         color = MaterialTheme.colorScheme.background,
