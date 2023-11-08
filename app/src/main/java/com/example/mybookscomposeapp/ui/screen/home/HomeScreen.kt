@@ -1,6 +1,5 @@
 package com.example.mybookscomposeapp.ui.screen.home
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -41,7 +40,6 @@ fun HomeScreen(
         SearchBar(
             query = query,
             onQueryChange = viewModel::search,
-            modifier = Modifier.background(MaterialTheme.colorScheme.primary)
         )
         BookList(books = filteredBooks)
     }
@@ -72,7 +70,7 @@ fun SearchBar(
         },
         shape = MaterialTheme.shapes.large,
         modifier = modifier
-            .padding(16.dp)
+            .padding(8.dp)
             .fillMaxWidth()
             .heightIn(min = 48.dp)
     ) {
