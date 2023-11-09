@@ -18,7 +18,7 @@ import com.example.mybookscomposeapp.R
 @Composable
 fun CustomTopAppBar(
     @StringRes screenName: Int,
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
 ) {
     TopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(

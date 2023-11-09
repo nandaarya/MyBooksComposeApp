@@ -15,4 +15,12 @@
     <string name="detail_screen">Detail</string>
     <string name="favorite_screen">Favorite Books</string>
     <string name="about_screen">About</string>
+    <string name="enter_book_title">Masukkan Judul Buku</string>
+    <string name="book_title_label">Judul Buku</string>
+    <string name="book_cover_url_label">URL Cover Buku</string>
+    <string name="author_name_label">Nama Penulis</string>
+    <string name="publication_year_label">Tahun Terbit</string>
+    <string name="category_label">Kategori</string>
+    <string name="synopsis_label">Sinopsis</string>
+    <string name="text_field_hint">Masukkan %s</string>
 </resources>
