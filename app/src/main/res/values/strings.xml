@@ -15,6 +15,7 @@
     <string name="detail_screen">Detail</string>
     <string name="favorite_screen">Favorite Books</string>
     <string name="about_screen">About</string>
+    <string name="add_screen">Tambah Buku</string>
     <string name="enter_book_title">Masukkan Judul Buku</string>
     <string name="book_title_label">Judul Buku</string>
     <string name="book_cover_url_label">URL Cover Buku</string>

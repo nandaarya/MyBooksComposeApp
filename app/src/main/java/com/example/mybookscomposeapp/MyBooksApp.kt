@@ -100,7 +100,11 @@ fun MyBooksApp(
                 AboutScreen()
             }
             composable(Screen.Add.route) {
-                AddBookScreen()
+                AddBookScreen(
+                    navigateBack = {
+                        navController.navigateUp()
+                    },
+                )
             }
             composable(
                 route = Screen.Detail.route,

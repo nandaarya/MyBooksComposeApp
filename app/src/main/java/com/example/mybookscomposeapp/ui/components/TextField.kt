@@ -1,6 +1,7 @@
 package com.example.mybookscomposeapp.ui.components
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.MaterialTheme
@@ -21,16 +22,16 @@ fun TextField(
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column(modifier.padding(16.dp)) {
+    Column {
         Text(
             text = label,
-            style = MaterialTheme.typography.headlineSmall
+            style = MaterialTheme.typography.titleMedium
         )
         OutlinedTextField(
             value = input,
             label = { Text(hint) },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
             onValueChange = onValueChange,
+            modifier = Modifier.fillMaxWidth()
         )
     }
 }
