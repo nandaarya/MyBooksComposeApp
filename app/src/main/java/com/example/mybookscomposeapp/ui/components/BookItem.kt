@@ -51,7 +51,7 @@ fun BookItem(
                 HeightSpacer(16.dp)
                 Text(
                     text = synopsis,
-                    style = MaterialTheme.typography.titleSmall,
+                    style = MaterialTheme.typography.bodyMedium,
                     textAlign = TextAlign.Justify,
                     maxLines = 4,
                     overflow = TextOverflow.Ellipsis
