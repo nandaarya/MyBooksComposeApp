@@ -64,7 +64,9 @@ fun MyBooksApp(
             }
         },
         bottomBar = {
-            BottomBar(navController)
+            if (currentRoute == Screen.Home.route || currentRoute == Screen.Favorite.route || currentRoute == Screen.About.route) {
+                BottomBar(navController)
+            }
         },
     ) { innerPadding ->
         NavHost(

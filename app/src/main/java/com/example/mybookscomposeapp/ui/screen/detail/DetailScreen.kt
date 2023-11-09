@@ -1,10 +1,13 @@
 package com.example.mybookscomposeapp.ui.screen.detail
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.example.mybookscomposeapp.R
@@ -26,6 +29,7 @@ fun DetailScreen(
             is UiState.Loading -> {
                 viewModel.getBookById(bookId)
             }
+
             is UiState.Success -> {
                 val data = uiState.data
                 DetailContent(
@@ -42,6 +46,7 @@ fun DetailScreen(
 //                    }
                 )
             }
+
             is UiState.Error -> {}
         }
     }
@@ -58,7 +63,11 @@ fun DetailContent(
 ) {
     Column {
         Text(text = "Data Buku")
-        AsyncImage(model = bookCoverURL, contentDescription = bookTitle)
+        AsyncImage(
+            model = bookCoverURL,
+            contentDescription = bookTitle,
+            modifier = Modifier.size(200.dp)
+        )
         Text(text = stringResource(R.string.book_title, bookTitle))
         Text(text = stringResource(R.string.author_name, authorName))
         Text(text = stringResource(R.string.publication_year, publicationYear))
