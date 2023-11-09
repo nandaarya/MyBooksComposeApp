@@ -1,8 +1,6 @@
 package com.example.mybookscomposeapp.ui.screen.detail
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -22,6 +20,7 @@ import com.example.mybookscomposeapp.R
 import com.example.mybookscomposeapp.di.Injection
 import com.example.mybookscomposeapp.ui.UiState
 import com.example.mybookscomposeapp.ui.ViewModelFactory
+import com.example.mybookscomposeapp.ui.components.HeightSpacer
 import com.example.mybookscomposeapp.ui.theme.Typography
 
 @Composable
@@ -80,7 +79,7 @@ fun DetailContent(
             modifier = Modifier.align(Alignment.CenterHorizontally),
             style = Typography.titleLarge
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        HeightSpacer(16.dp)
         AsyncImage(
             model = bookCoverURL,
             contentDescription = bookTitle,
@@ -88,17 +87,17 @@ fun DetailContent(
                 .size(200.dp)
                 .align(Alignment.CenterHorizontally)
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        HeightSpacer(16.dp)
         Text(text = stringResource(R.string.book_title, bookTitle), style = Typography.bodyLarge)
-        Spacer(modifier = Modifier.height(8.dp))
+        HeightSpacer(8.dp)
         Text(text = stringResource(R.string.author_name, authorName), style = Typography.bodyLarge)
-        Spacer(modifier = Modifier.height(8.dp))
+        HeightSpacer(8.dp)
         Text(text = stringResource(R.string.publication_year, publicationYear), style = Typography.bodyLarge)
-        Spacer(modifier = Modifier.height(8.dp))
+        HeightSpacer(8.dp)
         Text(text = stringResource(R.string.category, category), style = Typography.bodyLarge)
-        Spacer(modifier = Modifier.height(16.dp))
+        HeightSpacer(16.dp)
         Text(text = "Sinopsis", fontWeight = FontWeight.Bold, style = Typography.bodyLarge)
-        Spacer(modifier = Modifier.height(8.dp))
+        HeightSpacer(8.dp)
         Text(text = synopsis, textAlign = TextAlign.Justify, style = Typography.bodyLarge)
     }
 }

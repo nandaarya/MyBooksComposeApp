@@ -2,11 +2,8 @@ package com.example.mybookscomposeapp.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -42,7 +39,7 @@ fun BookItem(
                 modifier = Modifier
                     .size(80.dp, 120.dp)
             )
-            Spacer(modifier = Modifier.width(8.dp))
+            WidthSpacer(8.dp)
             Column(
                 modifier = Modifier
                     .weight(1f)
@@ -51,7 +48,7 @@ fun BookItem(
                     text = bookTitle,
                     style = MaterialTheme.typography.titleMedium
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                HeightSpacer(16.dp)
                 Text(
                     text = synopsis,
                     style = MaterialTheme.typography.titleSmall,
