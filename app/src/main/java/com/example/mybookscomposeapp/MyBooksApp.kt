@@ -38,7 +38,6 @@ import com.example.mybookscomposeapp.ui.screen.home.HomeScreen
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyBooksApp(
-    modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -88,7 +87,11 @@ fun MyBooksApp(
                 )
             }
             composable(Screen.Favorite.route) {
-                FavoriteScreen()
+                FavoriteScreen(
+                    navigateToDetail = { bookId ->
+                        navController.navigate(Screen.Detail.createRoute(bookId))
+                    }
+                )
             }
             composable(Screen.About.route) {
                 AboutScreen()

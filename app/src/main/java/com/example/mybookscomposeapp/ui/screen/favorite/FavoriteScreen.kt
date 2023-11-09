@@ -1,26 +1,18 @@
 package com.example.mybookscomposeapp.ui.screen.favorite
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import com.example.mybookscomposeapp.R
-import com.example.mybookscomposeapp.data.Book
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mybookscomposeapp.data.BookData
+import com.example.mybookscomposeapp.di.Injection
+import com.example.mybookscomposeapp.ui.ViewModelFactory
 import com.example.mybookscomposeapp.ui.components.BookList
-import com.example.mybookscomposeapp.ui.components.CustomTopAppBar
 
 @Composable
-fun FavoriteScreen() {
-    Text(text = "Ini halaman favorite")
-}
-
-@Composable
-fun FavoriteContent(
-    favoriteBooks: List<Book>,
+fun FavoriteScreen(
+    viewModel: FavoriteViewModel = viewModel(
+        factory = ViewModelFactory(Injection.provideRepository())
+    ),
     navigateToDetail: (Long) -> Unit,
-    onBackClick: () -> Unit,
 ) {
-    Column {
-        CustomTopAppBar(screenName = R.string.favorite_screen, onBackClick)
-        BookList(books = favoriteBooks, navigateToDetail = navigateToDetail)
-    }
+    BookList(books = BookData.books, navigateToDetail = navigateToDetail)
 }
