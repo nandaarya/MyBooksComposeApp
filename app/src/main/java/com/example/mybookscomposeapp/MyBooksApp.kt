@@ -31,6 +31,7 @@ import androidx.navigation.navArgument
 import com.example.mybookscomposeapp.ui.navigation.NavigationItem
 import com.example.mybookscomposeapp.ui.navigation.Screen
 import com.example.mybookscomposeapp.ui.screen.about.AboutScreen
+import com.example.mybookscomposeapp.ui.screen.add.AddBookScreen
 import com.example.mybookscomposeapp.ui.screen.detail.DetailScreen
 import com.example.mybookscomposeapp.ui.screen.favorite.FavoriteScreen
 import com.example.mybookscomposeapp.ui.screen.home.HomeScreen
@@ -63,7 +64,9 @@ fun MyBooksApp(
         },
         floatingActionButton = {
             if (currentRoute == Screen.Home.route) {
-                FloatingActionButton(onClick = {}) {
+                FloatingActionButton(onClick = {
+                    navController.navigate(Screen.Add.route)
+                }) {
                     Icon(Icons.Default.Add, contentDescription = "Add")
                 }
             }
@@ -95,6 +98,9 @@ fun MyBooksApp(
             }
             composable(Screen.About.route) {
                 AboutScreen()
+            }
+            composable(Screen.Add.route) {
+                AddBookScreen()
             }
             composable(
                 route = Screen.Detail.route,
