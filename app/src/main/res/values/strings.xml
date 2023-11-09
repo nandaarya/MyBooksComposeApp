@@ -13,4 +13,6 @@
     <string name="category">Kategori: %s</string>
     <string name="back">Back</string>
     <string name="detail_screen">Detail</string>
+    <string name="favorite_screen">Favorite Books</string>
+    <string name="about_screen">About</string>
 </resources>

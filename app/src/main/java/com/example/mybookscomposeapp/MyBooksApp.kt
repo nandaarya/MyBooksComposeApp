@@ -53,7 +53,11 @@ fun MyBooksApp(
                         titleContentColor = MaterialTheme.colorScheme.primary,
                     ),
                     title = {
-                        Text(stringResource(id = R.string.app_name))
+                        when (currentRoute) {
+                            Screen.Home.route -> Text(stringResource(id = R.string.app_name))
+                            Screen.Favorite.route -> Text(stringResource(id = R.string.favorite_screen))
+                            Screen.About.route -> Text(stringResource(id = R.string.about_screen))
+                        }
                     },
                 )
             }
