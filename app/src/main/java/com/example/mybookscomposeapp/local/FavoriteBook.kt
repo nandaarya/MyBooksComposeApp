@@ -1,11 +1,9 @@
-package com.example.mybookscomposeapp.data
+package com.example.mybookscomposeapp.local
 
 import androidx.room.ColumnInfo
-import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
-data class Book(
+data class FavoriteBook(
     @PrimaryKey
     @ColumnInfo(name = "id")
     val id: Long,

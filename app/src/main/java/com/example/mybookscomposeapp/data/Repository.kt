@@ -1,8 +1,11 @@
 package com.example.mybookscomposeapp.data
 
 import android.util.Log
+import com.example.mybookscomposeapp.local.FavoriteBookDAO
 
-class Repository {
+class Repository(
+    private val favoriteBookDao: FavoriteBookDAO,
+) {
 
     private val books = mutableListOf<Book>()
 
@@ -41,7 +44,7 @@ class Repository {
         val id = books.last().id + 1
         Log.d(
             "repository",
-            "$id,\n" + "$bookCoverURL,\n" + "$bookTitle,\n" + "$authorName,\n" + "$publicationYear,\n" + "$category,\n" + "$synopsis"
+            "$id,\n$bookCoverURL,\n$bookTitle,\n$authorName,\n$publicationYear,\n$category,\n$synopsis"
         )
         books.add(
             Book(
@@ -57,12 +60,29 @@ class Repository {
         Log.d("repository", books.last().toString())
     }
 
+    suspend fun saveFavoriteBook(favoriteBook: Book) {
+        favoriteBookDao.insert(favoriteBook)
+    }
+
+    suspend fun delete(favoriteBook: Book) {
+        favoriteBookDao.delete(favoriteBook)
+    }
+
+    fun getFavoriteBook(): List<Book> = favoriteBookDao.getAllFavoriteUser()
+
+    fun isFavorite(id: Int): Boolean =
+        favoriteBookDao.isFavorite(id)
+
     companion object {
         @Volatile
         private var instance: Repository? = null
 
-        fun getInstance(): Repository = instance ?: synchronized(this) {
-            Repository().apply {
+        fun getInstance(
+            favoriteBookDao: FavoriteBookDAO,
+        ): Repository = instance ?: synchronized(this) {
+            Repository(
+               favoriteBookDao
+            ).apply {
                 instance = this
             }
         }
