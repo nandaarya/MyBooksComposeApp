@@ -24,7 +24,8 @@ import com.example.mybookscomposeapp.ui.theme.MyBooksComposeAppTheme
 fun BookItem(
     photoUrl: String,
     bookTitle: String,
-    synopsis: String
+    synopsis: String,
+    modifier: Modifier = Modifier,
 ) {
     Surface(
         color = MaterialTheme.colorScheme.primary,
@@ -32,7 +33,7 @@ fun BookItem(
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp),
     ) {
         Row(
-            modifier = Modifier.padding(16.dp)
+            modifier = modifier.padding(16.dp)
         ) {
             AsyncImage(
                 model = photoUrl,

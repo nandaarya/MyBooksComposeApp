@@ -1,5 +1,6 @@
 package com.example.mybookscomposeapp.ui.screen.home
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,13 +27,17 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mybookscomposeapp.R
 import com.example.mybookscomposeapp.data.Book
-import com.example.mybookscomposeapp.data.Repository
+import com.example.mybookscomposeapp.di.Injection
 import com.example.mybookscomposeapp.ui.ViewModelFactory
 import com.example.mybookscomposeapp.ui.components.BookItem
 
 @Composable
 fun HomeScreen(
-    viewModel: HomeViewModel = viewModel(factory = ViewModelFactory(Repository()))
+    modifier: Modifier = Modifier,
+    viewModel: HomeViewModel = viewModel(
+        factory = ViewModelFactory(Injection.provideRepository())
+    ),
+    navigateToDetail: (Long) -> Unit,
 ) {
     val filteredBooks by viewModel.filteredBooks.collectAsState()
     val query by viewModel.query
@@ -41,19 +46,16 @@ fun HomeScreen(
             query = query,
             onQueryChange = viewModel::search,
         )
-        BookList(books = filteredBooks)
+        BookList(books = filteredBooks, navigateToDetail = navigateToDetail)
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
 @Composable
 fun SearchBar(
-    query: String,
-    onQueryChange: (String) -> Unit,
-    modifier: Modifier = Modifier
+    query: String, onQueryChange: (String) -> Unit, modifier: Modifier = Modifier
 ) {
-    SearchBar(
-        query = query,
+    SearchBar(query = query,
         onQueryChange = onQueryChange,
         onSearch = {},
         active = false,
@@ -73,33 +75,32 @@ fun SearchBar(
             .padding(8.dp)
             .fillMaxWidth()
             .heightIn(min = 48.dp)
-    ) {
-    }
+    ) {}
 }
 
 @Composable
 fun BookList(
     books: List<Book>,
+    navigateToDetail: (Long) -> Unit,
 ) {
     Surface(
-        color = MaterialTheme.colorScheme.background,
-        modifier = Modifier.fillMaxSize()
+        color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxSize()
     ) {
         if (books.isEmpty()) {
             Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
+                modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
             ) {
                 Text(text = "No Books Saved :(")
             }
         } else {
             LazyColumn {
-                items(items = books) { book ->
-                    BookItem(
-                        photoUrl = book.bookCover,
+                items(items = books, key = {it.id} ) { book ->
+                    BookItem(photoUrl = book.bookCover,
                         bookTitle = book.bookTitle,
-                        synopsis = book.synopsis
-                    )
+                        synopsis = book.synopsis,
+                        modifier = Modifier.clickable {
+                            navigateToDetail(book.id)
+                        })
                 }
             }
         }

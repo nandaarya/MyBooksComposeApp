@@ -22,13 +22,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.mybookscomposeapp.ui.navigation.NavigationItem
 import com.example.mybookscomposeapp.ui.navigation.Screen
 import com.example.mybookscomposeapp.ui.screen.about.AboutScreen
+import com.example.mybookscomposeapp.ui.screen.detail.DetailScreen
 import com.example.mybookscomposeapp.ui.screen.favorite.FavoriteScreen
 import com.example.mybookscomposeapp.ui.screen.home.HomeScreen
 
@@ -70,13 +73,39 @@ fun MyBooksApp(
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) {
-                HomeScreen()
+                HomeScreen(
+                    navigateToDetail = { bookId ->
+                        navController.navigate(Screen.Detail.createRoute(bookId))
+                    }
+                )
             }
             composable(Screen.Favorite.route) {
                 FavoriteScreen()
             }
             composable(Screen.About.route) {
                 AboutScreen()
+            }
+            composable(
+                route = Screen.Detail.route,
+                arguments = listOf(navArgument("bookId") { type = NavType.LongType }),
+            ) {
+                val id = it.arguments?.getLong("bookId") ?: -1L
+                DetailScreen(
+                    bookId = id,
+//                    navigateBack = {
+//                        navController.navigateUp()
+//                    },
+//                    navigateToCart = {
+//                        navController.popBackStack()
+//                        navController.navigate(Screen.Cart.route) {
+//                            popUpTo(navController.graph.findStartDestination().id) {
+//                                saveState = true
+//                            }
+//                            launchSingleTop = true
+//                            restoreState = true
+//                        }
+//                    }
+                )
             }
         }
     }

@@ -3,6 +3,7 @@ package com.example.mybookscomposeapp.data
 object BookData {
     val books = listOf(
         Book(
+            1,
             "https://www.bukukita.com/babacms/displaybuku/44679_f.jpg",
             "Surat Kecil untuk Tuhan",
             "Agnes Davonar",
@@ -14,6 +15,7 @@ object BookData {
                     "Selama tiga tahun hidup dengan kanker ganas, Keke selalu dihantui dengan bayang-bayang kematian. Ia kemudian memutuskan menulis surat kecil kepada Tuhan berisi berbagai permohonan, termasuk keinginannya untuk sembuh, tumbuh dewasa, hingga agar tidak ada lagi orang yang bernasib sama dengannya."
         ),
         Book(
+            2,
             "https://upload.wikimedia.org/wikipedia/id/8/8e/Laskar_pelangi_sampul.jpg",
             "Laskar Pelangi",
             "Andrea Hirata",
@@ -24,6 +26,7 @@ object BookData {
                     "Di balik keterbatasan yang harus mereka hadapi, baik itu dalam bentuk sarana dan prasarana maupun tenaga pendidik, kesepuluh anak yang menjadi tokoh utama dalam novel ini tetap mempunyai semangat juang dalam kegiatan pendidikan yang tengah mereka tempuh."
         ),
         Book(
+            3,
             "https://ebooks.gramedia.com/ebook-covers/45496/image_highres/ID_FITE2018MTH12.jpg",
             "Filosofi Teras",
             "Henry Manampiring",
@@ -34,6 +37,7 @@ object BookData {
                     "Dalam buku tersebut, filsafat Stoa digambarkan secara sederhana dengan inti dikotomi kendali nasib manusia, sehingga dari dikotomi kendali tersebut, manusia dapat menentukan hal-hal yang dapat membuatnya bahagia maupun tidak."
         ),
         Book(
+            4,
             "https://upload.wikimedia.org/wikipedia/id/thumb/1/19/Buku_Habibie_Ainun.jpg/220px-Buku_Habibie_Ainun.jpg",
             "Habibi & Ainun",
             "Bacharuddin Jusuf Habibie",
@@ -44,6 +48,7 @@ object BookData {
                     "Menurutnya kehadiran Ainun yang telah mendampinginya selama ini, telah menjadi api yang selalu membakar energi semangat dan jiwanya dalam menjalani hidup. Sekaligus laksana air yang selalu menyiram dan meredakan gejolak jiwanya hingga kembali tenang."
         ),
         Book(
+            5,
             "https://cdn.gramedia.com/uploads/items/Sang_Pemimpi_ofLeeOG.jpg",
             "Sang Pemimpi",
             "Andrea Hirata",
@@ -53,6 +58,7 @@ object BookData {
                     "Dalam novel Sang Pemimpi, Andrea Hirata bercerita tentang kehidupannya di Belitong pada masa SMA. Tiga tokoh utama dalam karya ini adalah Ikal, Arai dan Jimbron. Ikal tidak lain adalah Andrea Hirata sendiri, sedangkan Arai Ichsanul Mahidin adalah saudara jauhnya yang menjadi yatim piatu ketika masih kecil. Arai disebut simpai keramat karena dalam keluarganya ia adalah orang terakhir yang masih hidup dan ia pun diangkat menjadi anak oleh ayah Ikal. Jimbron merupakan teman Arai dan Ikal yang sangat terobsesi dengan kuda dan gagap bila sedang antusias terhadap sesuatu atau ketika gugup. Ketiganya melewati kisah persahabatan yang terjalin dari kecil hingga mereka bersekolah di SMA Negeri Bukan Main, SMA pertama yang berdiri di Belitung bagian timur."
         ),
         Book(
+            6,
             "https://upload.wikimedia.org/wikipedia/id/e/ec/Edensor_sampul.jpg",
             "Edensor",
             "Andrea Hirata",
@@ -62,6 +68,7 @@ object BookData {
                     "Dalam Edensor, Andrea tetap dengan ciri khasnya, menulis kisah ironi menjadi parodi dan menertawakan kesedihan dengan balutan pandangan intelegensia tentang culture shock ketika kedua tokoh utama tersebut yang berasal dari pedalaman Melayu di Pulau Belitong tiba-tiba berada di Paris. Mimpi-mimpi untuk menjelajah Eropa sampai Afrika dan menemukan keterkaitan yang tak terduga dari peristiwa-peristiwa dari masa lalu mereka berdua. Dan pencarian akan cinta sejati menjadi motivasi yang menyemangati penjelajahan mereka dari bekunya musim dingin di daratan Rusia di Eropa sampai panas kering di gurun"
         ),
         Book(
+            7,
             "https://cdn.gramedia.com/uploads/items/9786020333175_rich-dad-poor-dad-_edisi-revisi_.jpg",
             "Rich Dad Poor Dad",
             "Robert T. Kiyosaki",
@@ -71,6 +78,7 @@ object BookData {
                     "Melalui perbandingan antara pandangan kedua ayah ini, Kiyosaki mengungkapkan perbedaan mendasar dalam cara mereka memandang uang, aset, dan tanggung jawab finansial. Buku ini tidak hanya mengajarkan tentang manajemen uang, tetapi juga tentang bagaimana membangun sikap mental yang benar terhadap kekayaan dan investasi. Dengan cerita yang menginspirasi dan strategi praktis, buku ini mendorong pembaca untuk memahami pentingnya pendidikan finansial, mengatasi ketakutan terhadap risiko, dan meraih kebebasan finansial melalui pemahaman yang lebih mendalam tentang uang."
         ),
         Book(
+            8,
             "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sebuah-seni-untuk-bersikap-bodoh-amat.jpg",
             "Seni Bersikap Bodo Amat",
             "Mark Manson",
@@ -80,6 +88,7 @@ object BookData {
                     "Manson mengajak pembaca untuk menghadapi kenyataan dan menerima ketidaksempurnaan diri. Dengan bahasa yang lugas dan berani, ia mengajarkan bagaimana mengalihkan perhatian dari hal-hal yang kurang berarti dan merangkul ketidakpastian. Buku ini membahas tentang memilih nilai-nilai yang benar-benar penting dalam hidup, memperkuat keterampilan menghadapi masalah, dan mengembangkan rasa keterikatan dengan diri sendiri dan orang lain. Dengan pendekatan yang menghibur dan penuh wawasan, buku ini mengajak pembaca untuk menjalani kehidupan yang lebih otentik, tulus, dan penuh makna."
         ),
         Book(
+            9,
             "https://assets-a1.kompasiana.com/items/album/2020/02/10/img-20200210-144355-jpg-5e410e40097f365f653b5472.jpg",
             "Atomic Habits",
             "James Clear",
@@ -89,6 +98,7 @@ object BookData {
                     "Atomic Habits telah menjadi buku yang populer di kalangan pembaca yang tertarik untuk mengembangkan diri dan mencapai tujuan hidup yang lebih baik. Buku ini memberikan wawasan dan strategi yang dapat diterapkan oleh siapa saja yang ingin mencapai perubahan positif dalam hidup mereka. Dengan mengikuti konsep \"four laws of behavior change\" dan merancang lingkungan yang mendukung, pembaca dapat mengubah kebiasaan-kebiasaan kecil menjadi kekuatan yang membawa mereka menuju kesuksesan. Atomic Habits menawarkan pendekatan yang praktis dan ilmiah untuk mengubah kebiasaan-kebiasaan dan membentuk identitas yang lebih baik."
         ),
         Book(
+            10,
             "https://cdn.gramedia.com/uploads/items/psychology_of_money.jpg",
             "Psychology of Money",
             "Morgan Housel",
@@ -99,6 +109,7 @@ object BookData {
                     "Buku ini juga membahas tentang pentingnya kesabaran dan disiplin dalam mengelola keuangan, serta bagaimana membangun kekayaan dalam jangka panjang. Dengan gaya penulisan yang jelas dan mudah dipahami, Psychology of Money menjadi panduan yang berguna bagi siapa saja yang ingin memahami psikologi keuangan dan mengambil keputusan finansial yang lebih baik."
         ),
         Book(
+            11,
             "https://ebooks.gramedia.com/ebook-covers/49508/image_highres/ID_BTD2019MTH10BTD.jpg",
             "Berani Tidak Disukai",
             "Ichiro Kishimi dan Fumitake Koga",
@@ -109,6 +120,7 @@ object BookData {
                     "Dengan menggunakan dialog antara seorang pemuda yang mencari bimbingan dan seorang filsuf yang memberikan nasihat, Berani Tidak Disukai mengajarkan pembaca untuk memahami bahwa mereka memiliki kekuatan untuk mengubah hidup mereka sendiri dan menciptakan hubungan yang sehat dan bermakna dengan orang lain. Buku ini memberikan wawasan yang berharga tentang bagaimana menghadapi tantangan hidup dengan keberanian dan mengembangkan sikap yang positif dalam menghadapi kritik dan penolakan."
         ),
         Book(
+            12,
             "https://cdn.gramedia.com/uploads/items/img20190902_16534294.jpg",
             "The Power of Habit",
             "Charles Duhigg",
