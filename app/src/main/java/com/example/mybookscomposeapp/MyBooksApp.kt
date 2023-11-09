@@ -46,15 +46,17 @@ fun MyBooksApp(
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                colors = topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.primary,
-                ),
-                title = {
-                    Text(stringResource(id = R.string.app_name))
-                },
-            )
+            if (currentRoute == Screen.Home.route || currentRoute == Screen.Favorite.route || currentRoute == Screen.About.route) {
+                TopAppBar(
+                    colors = topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                        titleContentColor = MaterialTheme.colorScheme.primary,
+                    ),
+                    title = {
+                        Text(stringResource(id = R.string.app_name))
+                    },
+                )
+            }
         },
         floatingActionButton = {
             if (currentRoute == Screen.Home.route) {
@@ -94,9 +96,9 @@ fun MyBooksApp(
                 val id = it.arguments?.getLong("bookId") ?: -1L
                 DetailScreen(
                     bookId = id,
-//                    navigateBack = {
-//                        navController.navigateUp()
-//                    },
+                    navigateBack = {
+                        navController.navigateUp()
+                    },
 //                    navigateToCart = {
 //                        navController.popBackStack()
 //                        navController.navigate(Screen.Cart.route) {

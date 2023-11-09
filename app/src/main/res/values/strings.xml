@@ -11,4 +11,6 @@
     <string name="author_name">Nama Penulis: %s</string>
     <string name="publication_year">Tahun Terbit: %s</string>
     <string name="category">Kategori: %s</string>
+    <string name="back">Back</string>
+    <string name="detail_screen">Detail</string>
 </resources>

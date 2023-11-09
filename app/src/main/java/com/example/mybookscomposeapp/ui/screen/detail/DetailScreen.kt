@@ -5,7 +5,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -20,6 +28,7 @@ import com.example.mybookscomposeapp.R
 import com.example.mybookscomposeapp.di.Injection
 import com.example.mybookscomposeapp.ui.UiState
 import com.example.mybookscomposeapp.ui.ViewModelFactory
+import com.example.mybookscomposeapp.ui.components.CustomTopAppBar
 import com.example.mybookscomposeapp.ui.components.HeightSpacer
 import com.example.mybookscomposeapp.ui.theme.Typography
 
@@ -31,6 +40,7 @@ fun DetailScreen(
             Injection.provideRepository()
         )
     ),
+    navigateBack: () -> Unit
 ) {
     viewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
         when (uiState) {
@@ -46,7 +56,8 @@ fun DetailScreen(
                     data.authorName,
                     data.publicationYear,
                     data.category,
-                    data.synopsis
+                    data.synopsis,
+                    onBackClick = navigateBack
 //                    onBackClick = navigateBack,
 //                    onAddToCart = { count ->
 //                        viewModel.addToCart(data.reward, count)
@@ -60,6 +71,7 @@ fun DetailScreen(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailContent(
     bookCoverURL: String,
@@ -68,36 +80,49 @@ fun DetailContent(
     publicationYear: String,
     category: String,
     synopsis: String,
+    onBackClick: () -> Unit,
 ) {
-    Column(
-        modifier = Modifier
-            .padding(24.dp)
-            .verticalScroll(rememberScrollState())
-    ) {
-        Text(
-            text = "Data Buku",
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            style = Typography.titleLarge
-        )
-        HeightSpacer(16.dp)
-        AsyncImage(
-            model = bookCoverURL,
-            contentDescription = bookTitle,
+    Column {
+        CustomTopAppBar(screenName = R.string.detail_screen, onBackClick)
+        Column(
             modifier = Modifier
-                .size(200.dp)
-                .align(Alignment.CenterHorizontally)
-        )
-        HeightSpacer(16.dp)
-        Text(text = stringResource(R.string.book_title, bookTitle), style = Typography.bodyLarge)
-        HeightSpacer(8.dp)
-        Text(text = stringResource(R.string.author_name, authorName), style = Typography.bodyLarge)
-        HeightSpacer(8.dp)
-        Text(text = stringResource(R.string.publication_year, publicationYear), style = Typography.bodyLarge)
-        HeightSpacer(8.dp)
-        Text(text = stringResource(R.string.category, category), style = Typography.bodyLarge)
-        HeightSpacer(16.dp)
-        Text(text = "Sinopsis", fontWeight = FontWeight.Bold, style = Typography.bodyLarge)
-        HeightSpacer(8.dp)
-        Text(text = synopsis, textAlign = TextAlign.Justify, style = Typography.bodyLarge)
+                .verticalScroll(rememberScrollState())
+                .padding(24.dp)
+        ) {
+            Text(
+                text = "Data Buku",
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+                style = Typography.titleLarge
+            )
+            HeightSpacer(16.dp)
+            AsyncImage(
+                model = bookCoverURL,
+                contentDescription = bookTitle,
+                modifier = Modifier
+                    .size(200.dp)
+                    .align(Alignment.CenterHorizontally)
+            )
+            HeightSpacer(16.dp)
+            Text(
+                text = stringResource(R.string.book_title, bookTitle),
+                style = Typography.bodyLarge
+            )
+            HeightSpacer(8.dp)
+            Text(
+                text = stringResource(R.string.author_name, authorName),
+                style = Typography.bodyLarge
+            )
+            HeightSpacer(8.dp)
+            Text(
+                text = stringResource(R.string.publication_year, publicationYear),
+                style = Typography.bodyLarge
+            )
+            HeightSpacer(8.dp)
+            Text(text = stringResource(R.string.category, category), style = Typography.bodyLarge)
+            HeightSpacer(16.dp)
+            Text(text = "Sinopsis", fontWeight = FontWeight.Bold, style = Typography.bodyLarge)
+            HeightSpacer(8.dp)
+            Text(text = synopsis, textAlign = TextAlign.Justify, style = Typography.bodyLarge)
+        }
     }
 }
