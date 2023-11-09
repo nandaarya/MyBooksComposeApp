@@ -3,6 +3,7 @@ package com.example.mybookscomposeapp.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.mybookscomposeapp.data.Repository
+import com.example.mybookscomposeapp.ui.screen.add.AddBookViewModel
 import com.example.mybookscomposeapp.ui.screen.detail.DetailViewModel
 import com.example.mybookscomposeapp.ui.screen.favorite.FavoriteViewModel
 import com.example.mybookscomposeapp.ui.screen.home.HomeViewModel
@@ -17,6 +18,8 @@ class ViewModelFactory(private val repository: Repository) :
             return DetailViewModel(repository) as T
         } else if (modelClass.isAssignableFrom(FavoriteViewModel::class.java)) {
             return FavoriteViewModel(repository) as T
+        }else if (modelClass.isAssignableFrom(AddBookViewModel::class.java)) {
+            return AddBookViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

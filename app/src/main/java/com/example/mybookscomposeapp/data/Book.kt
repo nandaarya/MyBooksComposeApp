@@ -2,7 +2,7 @@ package com.example.mybookscomposeapp.data
 
 data class Book(
     val id: Long,
-    var bookCover: String,
+    var bookCoverURL: String,
     var bookTitle: String,
     var authorName: String,
     var publicationYear: String,

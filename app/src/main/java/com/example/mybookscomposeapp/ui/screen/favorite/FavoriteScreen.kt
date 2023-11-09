@@ -9,10 +9,10 @@ import com.example.mybookscomposeapp.ui.components.BookList
 
 @Composable
 fun FavoriteScreen(
-    viewModel: FavoriteViewModel = viewModel(
+    favoriteViewModel: FavoriteViewModel = viewModel(
         factory = ViewModelFactory(Injection.provideRepository())
     ),
     navigateToDetail: (Long) -> Unit,
 ) {
-    BookList(books = BookData.books, navigateToDetail = navigateToDetail)
+    BookList(books = emptyList(), navigateToDetail = navigateToDetail)
 }

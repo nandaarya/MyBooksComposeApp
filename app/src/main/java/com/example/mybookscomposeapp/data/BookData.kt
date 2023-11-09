@@ -1,7 +1,7 @@
 package com.example.mybookscomposeapp.data
 
 object BookData {
-    val books = listOf(
+    val dummyBooks = listOf(
         Book(
             1,
             "https://www.bukukita.com/babacms/displaybuku/44679_f.jpg",

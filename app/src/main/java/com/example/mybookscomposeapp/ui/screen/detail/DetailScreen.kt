@@ -27,23 +27,23 @@ import com.example.mybookscomposeapp.ui.theme.Typography
 @Composable
 fun DetailScreen(
     bookId: Long,
-    viewModel: DetailViewModel = viewModel(
+    detailViewModel: DetailViewModel = viewModel(
         factory = ViewModelFactory(
             Injection.provideRepository()
         )
     ),
     navigateBack: () -> Unit
 ) {
-    viewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
+    detailViewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
         when (uiState) {
             is UiState.Loading -> {
-                viewModel.getBookById(bookId)
+                detailViewModel.getBookById(bookId)
             }
 
             is UiState.Success -> {
                 val data = uiState.data
                 DetailContent(
-                    data.bookCover,
+                    data.bookCoverURL,
                     data.bookTitle,
                     data.authorName,
                     data.publicationYear,

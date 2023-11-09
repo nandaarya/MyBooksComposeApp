@@ -104,6 +104,7 @@ fun MyBooksApp(
                     navigateBack = {
                         navController.navigateUp()
                     },
+                    navController = navController
                 )
             }
             composable(

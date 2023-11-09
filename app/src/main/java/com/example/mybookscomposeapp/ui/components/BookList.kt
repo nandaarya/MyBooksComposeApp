@@ -34,7 +34,7 @@ fun BookList(
         } else {
             LazyColumn {
                 items(items = books, key = {it.id} ) { book ->
-                    BookItem(photoUrl = book.bookCover,
+                    BookItem(photoUrl = book.bookCoverURL,
                         bookTitle = book.bookTitle,
                         synopsis = book.synopsis,
                         modifier = Modifier.clickable {
@@ -43,18 +43,5 @@ fun BookList(
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Preview(
-    uiMode = Configuration.UI_MODE_NIGHT_YES,
-    showBackground = true,
-    name = "Dark Mode"
-)
-@Composable
-fun BookListPreview() {
-    MyBooksComposeAppTheme {
-        BookList(books = BookData.books, navigateToDetail = {})
     }
 }
