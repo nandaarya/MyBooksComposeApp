@@ -6,8 +6,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mybookscomposeapp.di.Injection
+import com.example.mybookscomposeapp.ui.UiState
 import com.example.mybookscomposeapp.ui.ViewModelFactory
 import com.example.mybookscomposeapp.ui.components.BookList
+import com.example.mybookscomposeapp.ui.screen.detail.DetailContent
 
 @Composable
 fun FavoriteScreen(
@@ -16,6 +18,20 @@ fun FavoriteScreen(
     ),
     navigateToDetail: (Long) -> Unit,
 ) {
-    val favoriteBooks by favoriteViewModel.favoriteBooks.collectAsState()
-    BookList(books = favoriteBooks, navigateToDetail = navigateToDetail)
+    favoriteViewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
+        when (uiState) {
+            is UiState.Loading -> {
+                favoriteViewModel.getFavoriteBooks()
+            }
+
+            is UiState.Success -> {
+                val favoriteBooks = uiState.data
+                BookList(books = favoriteBooks, navigateToDetail = navigateToDetail)
+            }
+
+            is UiState.Error -> {}
+        }
+    }
+//    val favoriteBooks by favoriteViewModel.favoriteBooks.collectAsState()
+
 }

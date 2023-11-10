@@ -68,7 +68,9 @@ class Repository(
         favoriteBookDao.delete(favoriteBook)
     }
 
-    fun getFavoriteBook(): List<Book> = favoriteBookDao.getAllFavoriteUser()
+    suspend fun getFavoriteBook(): List<Book> {
+        return favoriteBookDao.getAllFavoriteUser()
+    }
 
     fun isFavorite(bookId: Long): Boolean =
         favoriteBookDao.isFavorite(bookId)

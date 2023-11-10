@@ -20,7 +20,7 @@ interface FavoriteBookDAO {
     suspend fun delete(favoriteUser: Book)
 
     @Query("SELECT * from Book")
-    fun getAllFavoriteUser(): List<Book>
+    suspend fun getAllFavoriteUser(): List<Book>
 
     @Query("SELECT EXISTS(SELECT * FROM Book WHERE Book.id = :bookId)")
     fun isFavorite(bookId: Long): Boolean
