@@ -108,11 +108,11 @@ fun DetailContent(
                             else R.drawable.ic_baseline_favorite_border_24
                         ),
                         tint = if (isBookSaved) Color.Red else Color.Gray,
-                        contentDescription = "Favorite Button",
+                        contentDescription = stringResource(R.string.favorite_button),
                     )
                 }
                 Text(
-                    text = "Data Buku",
+                    text = stringResource(R.string.book_data),
                     modifier = Modifier.align(Alignment.Center),
                     style = Typography.titleLarge
                 )

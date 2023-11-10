@@ -56,7 +56,7 @@ fun AddBookScreen(
                 .verticalScroll(rememberScrollState())
         ) {
             Text(
-                text = "Masukkan Data Buku Baru",
+                text = stringResource(R.string.add_new_book),
                 style = Typography.titleLarge,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )

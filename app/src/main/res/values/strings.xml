@@ -24,4 +24,7 @@
     <string name="category_label">Kategori</string>
     <string name="synopsis_label">Sinopsis</string>
     <string name="text_field_hint">Masukkan %s</string>
+    <string name="add_new_book">Masukkan Data Buku Baru</string>
+    <string name="favorite_button">Favorite Button</string>
+    <string name="book_data">Data Buku</string>
 </resources>

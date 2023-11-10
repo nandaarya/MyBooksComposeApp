@@ -1,6 +1,5 @@
 package com.example.mybookscomposeapp.ui.screen.add
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mybookscomposeapp.data.Repository
@@ -24,14 +23,6 @@ class AddBookViewModel(private val repository: Repository) : ViewModel() {
                 publicationYear,
                 category,
                 synopsis
-            )
-            Log.d(
-                "addBookViewModel", "$bookCoverURL,\n" +
-                        "$bookTitle,\n" +
-                        "$authorName,\n" +
-                        "$publicationYear,\n" +
-                        "$category,\n" +
-                        synopsis
             )
         }
     }
