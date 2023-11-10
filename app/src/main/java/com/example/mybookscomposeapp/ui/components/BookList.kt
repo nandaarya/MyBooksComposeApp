@@ -24,7 +24,7 @@ fun BookList(
     ) {
         if (books.isEmpty()) {
             Box(
-                modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
+                modifier.fillMaxSize(), contentAlignment = Alignment.Center
             ) {
                 Text(text = "No Books Saved :(")
             }

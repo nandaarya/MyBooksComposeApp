@@ -16,7 +16,9 @@ fun TextField(
     modifier: Modifier = Modifier,
     onValueChange: (String) -> Unit,
 ) {
-    Column {
+    Column(
+        modifier.fillMaxWidth()
+    ) {
         Text(
             text = label,
             style = MaterialTheme.typography.titleMedium

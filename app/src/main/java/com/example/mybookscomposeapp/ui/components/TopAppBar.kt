@@ -1,6 +1,7 @@
 package com.example.mybookscomposeapp.ui.components
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -37,6 +38,7 @@ fun CustomTopAppBar(
                     contentDescription = stringResource(R.string.back),
                 )
             }
-        }
+        },
+        modifier = modifier.fillMaxWidth()
     )
 }
