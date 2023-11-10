@@ -66,7 +66,8 @@ fun AddBookScreen(
                     R.string.text_field_hint,
                     stringResource(R.string.book_cover_url_label)
                 ),
-                input = bookCoverURL
+                input = bookCoverURL,
+                modifier = Modifier,
             ) { newInput ->
                 bookCoverURL = newInput
             }
@@ -76,7 +77,8 @@ fun AddBookScreen(
                     R.string.text_field_hint,
                     stringResource(R.string.book_title_label)
                 ),
-                input = bookTitle
+                input = bookTitle,
+                modifier = Modifier,
             ) { newInput ->
                 bookTitle = newInput
             }
@@ -86,7 +88,8 @@ fun AddBookScreen(
                     R.string.text_field_hint,
                     stringResource(R.string.author_name_label)
                 ),
-                input = authorName
+                input = authorName,
+                modifier = Modifier,
             ) { newInput ->
                 authorName = newInput
             }
@@ -96,7 +99,8 @@ fun AddBookScreen(
                     R.string.text_field_hint,
                     stringResource(R.string.publication_year_label)
                 ),
-                input = publicationYear
+                input = publicationYear,
+                modifier = Modifier,
             ) { newInput ->
                 publicationYear = newInput
             }
@@ -106,7 +110,8 @@ fun AddBookScreen(
                     R.string.text_field_hint,
                     stringResource(R.string.category_label)
                 ),
-                input = category
+                input = category,
+                modifier = Modifier,
             ) { newInput ->
                 category = newInput
             }
@@ -116,7 +121,8 @@ fun AddBookScreen(
                     R.string.text_field_hint,
                     stringResource(R.string.synopsis_label)
                 ),
-                input = synopsis
+                input = synopsis,
+                modifier = Modifier,
             ) { newInput ->
                 synopsis = newInput
             }

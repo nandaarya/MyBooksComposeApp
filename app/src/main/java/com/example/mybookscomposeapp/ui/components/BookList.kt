@@ -17,6 +17,7 @@ import com.example.mybookscomposeapp.data.Book
 fun BookList(
     books: List<Book>,
     navigateToDetail: (Long) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Surface(
         color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxSize()
