@@ -62,7 +62,12 @@ fun DetailScreen(
                     data.synopsis,
                     isBookSaved,
                     setFavorite = {
-                        detailViewModel.saveFavoriteBook(data)
+                        if (!isBookSaved) {
+                            detailViewModel.saveFavoriteBook(data)
+                        } else {
+                            detailViewModel.deleteFavoriteBook(data)
+                        }
+
                     },
                     onBackClick = navigateBack
                 )
