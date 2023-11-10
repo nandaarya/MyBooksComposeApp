@@ -62,10 +62,7 @@ fun AddBookScreen(
             )
             TextField(
                 label = stringResource(R.string.book_cover_url_label),
-                hint = stringResource(
-                    R.string.text_field_hint,
-                    stringResource(R.string.book_cover_url_label)
-                ),
+                hint = stringResource(R.string.enter_url_book_cover),
                 input = bookCoverURL,
                 modifier = Modifier,
             ) { newInput ->
@@ -73,10 +70,7 @@ fun AddBookScreen(
             }
             TextField(
                 label = stringResource(R.string.book_title_label),
-                hint = stringResource(
-                    R.string.text_field_hint,
-                    stringResource(R.string.book_title_label)
-                ),
+                hint = stringResource(R.string.enter_book_title),
                 input = bookTitle,
                 modifier = Modifier,
             ) { newInput ->
@@ -84,10 +78,7 @@ fun AddBookScreen(
             }
             TextField(
                 label = stringResource(R.string.author_name_label),
-                hint = stringResource(
-                    R.string.text_field_hint,
-                    stringResource(R.string.author_name_label)
-                ),
+                hint = stringResource(R.string.enter_author_name),
                 input = authorName,
                 modifier = Modifier,
             ) { newInput ->
@@ -95,10 +86,7 @@ fun AddBookScreen(
             }
             TextField(
                 label = stringResource(R.string.publication_year_label),
-                hint = stringResource(
-                    R.string.text_field_hint,
-                    stringResource(R.string.publication_year_label)
-                ),
+                hint = stringResource(R.string.enter_publication_year),
                 input = publicationYear,
                 modifier = Modifier,
             ) { newInput ->
@@ -106,10 +94,7 @@ fun AddBookScreen(
             }
             TextField(
                 label = stringResource(R.string.category_label),
-                hint = stringResource(
-                    R.string.text_field_hint,
-                    stringResource(R.string.category_label)
-                ),
+                hint = stringResource(R.string.enter_category),
                 input = category,
                 modifier = Modifier,
             ) { newInput ->
@@ -117,10 +102,7 @@ fun AddBookScreen(
             }
             TextField(
                 label = stringResource(R.string.synopsis_label),
-                hint = stringResource(
-                    R.string.text_field_hint,
-                    stringResource(R.string.synopsis_label)
-                ),
+                hint = stringResource(R.string.enter_synopsis),
                 input = synopsis,
                 modifier = Modifier,
             ) { newInput ->
@@ -145,7 +127,7 @@ fun AddBookScreen(
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(text = "Tambah Buku")
+                Text(text = stringResource(R.string.add_book))
             }
         }
     }

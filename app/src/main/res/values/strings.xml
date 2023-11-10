@@ -23,8 +23,15 @@
     <string name="publication_year_label">Tahun Terbit</string>
     <string name="category_label">Kategori</string>
     <string name="synopsis_label">Sinopsis</string>
-    <string name="text_field_hint">Masukkan %s</string>
     <string name="add_new_book">Masukkan Data Buku Baru</string>
     <string name="favorite_button">Favorite Button</string>
     <string name="book_data">Data Buku</string>
+    <string name="list_empty_message">No Books Saved :(</string>
+    <string name="add_book_button">Add Book Button</string>
+    <string name="add_book">Tambah Buku</string>
+    <string name="enter_url_book_cover">Masukkan URL Cover Buku</string>
+    <string name="enter_author_name">Masukkan Nama Penulis</string>
+    <string name="enter_publication_year">Masukkan Tahun Terbit</string>
+    <string name="enter_category">Masukkan Kategori</string>
+    <string name="enter_synopsis">Masukkan Sinopsis</string>
 </resources>

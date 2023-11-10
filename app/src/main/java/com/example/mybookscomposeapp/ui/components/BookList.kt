@@ -11,6 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
+import com.example.mybookscomposeapp.R
 import com.example.mybookscomposeapp.data.Book
 
 @Composable
@@ -26,10 +29,12 @@ fun BookList(
             Box(
                 modifier.fillMaxSize(), contentAlignment = Alignment.Center
             ) {
-                Text(text = "No Books Saved :(")
+                Text(text = stringResource(R.string.list_empty_message))
             }
         } else {
-            LazyColumn {
+            LazyColumn(
+                modifier.testTag("BookList")
+            ) {
                 items(items = books, key = {it.id} ) { book ->
                     BookItem(photoUrl = book.bookCoverURL,
                         bookTitle = book.bookTitle,

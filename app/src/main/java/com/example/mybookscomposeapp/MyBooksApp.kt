@@ -67,7 +67,7 @@ fun MyBooksApp(
                 FloatingActionButton(onClick = {
                     navController.navigate(Screen.Add.route)
                 }) {
-                    Icon(Icons.Default.Add, contentDescription = "Add")
+                    Icon(Icons.Default.Add, contentDescription = stringResource(R.string.add_book_button))
                 }
             }
         },
@@ -115,16 +115,6 @@ fun MyBooksApp(
                     navigateBack = {
                         navController.navigateUp()
                     },
-//                    navigateToCart = {
-//                        navController.popBackStack()
-//                        navController.navigate(Screen.Cart.route) {
-//                            popUpTo(navController.graph.findStartDestination().id) {
-//                                saveState = true
-//                            }
-//                            launchSingleTop = true
-//                            restoreState = true
-//                        }
-//                    }
                 )
             }
         }
