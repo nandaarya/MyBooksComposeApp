@@ -12,10 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.mybookscomposeapp.ui.theme.MyBooksComposeAppTheme
 
 @Composable
 fun BookItem(
@@ -58,18 +56,5 @@ fun BookItem(
                 )
             }
         }
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-fun BookItemPreview() {
-    MyBooksComposeAppTheme {
-        BookItem(
-            "https://upload.wikimedia.org/wikipedia/commons/4/4b/Sebuah-seni-untuk-bersikap-bodoh-amat.jpg",
-            "Seni Bersikap Bodo Amat",
-            "Seni Bersikap Bodo Amat (The Subtle Art of Not Giving a F*ck) adalah buku yang menawarkan perspektif radikal tentang mencari makna dan kebahagiaan dalam hidup. Ditulis oleh Mark Manson, buku ini menantang pandangan konvensional tentang pencapaian dan kebahagiaan dengan mengajukan pertanyaan penting: Apa yang benar-benar penting dalam hidup kita? Buku ini menunjukkan bahwa fokus pada segala hal yang positif dan mencari kesenangan semata dapat mengakibatkan kekecewaan dan ketidakpuasan." +
-                    "Manson mengajak pembaca untuk menghadapi kenyataan dan menerima ketidaksempurnaan diri. Dengan bahasa yang lugas dan berani, ia mengajarkan bagaimana mengalihkan perhatian dari hal-hal yang kurang berarti dan merangkul ketidakpastian. Buku ini membahas tentang memilih nilai-nilai yang benar-benar penting dalam hidup, memperkuat keterampilan menghadapi masalah, dan mengembangkan rasa keterikatan dengan diri sendiri dan orang lain. Dengan pendekatan yang menghibur dan penuh wawasan, buku ini mengajak pembaca untuk menjalani kehidupan yang lebih otentik, tulus, dan penuh makna."
-        )
     }
 }

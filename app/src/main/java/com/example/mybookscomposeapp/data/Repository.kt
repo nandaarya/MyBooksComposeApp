@@ -1,6 +1,5 @@
 package com.example.mybookscomposeapp.data
 
-import android.util.Log
 import com.example.mybookscomposeapp.local.FavoriteBookDAO
 
 class Repository(
@@ -42,10 +41,6 @@ class Repository(
         synopsis: String
     ){
         val id = books.last().id + 1
-        Log.d(
-            "repository",
-            "$id,\n$bookCoverURL,\n$bookTitle,\n$authorName,\n$publicationYear,\n$category,\n$synopsis"
-        )
         books.add(
             Book(
                 id,
@@ -57,7 +52,6 @@ class Repository(
                 synopsis
             )
         )
-        Log.d("repository", books.last().toString())
     }
 
     suspend fun saveFavoriteBook(favoriteBook: Book) {

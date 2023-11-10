@@ -83,11 +83,9 @@ fun MyBooksApp(
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) {
-                HomeScreen(
-                    navigateToDetail = { bookId ->
-                        navController.navigate(Screen.Detail.createRoute(bookId))
-                    }
-                )
+                HomeScreen { bookId ->
+                    navController.navigate(Screen.Detail.createRoute(bookId))
+                }
             }
             composable(Screen.Favorite.route) {
                 FavoriteScreen(

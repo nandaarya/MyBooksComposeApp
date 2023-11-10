@@ -10,7 +10,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -22,10 +21,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.mybookscomposeapp.R
 import com.example.mybookscomposeapp.di.Injection
-import com.example.mybookscomposeapp.ui.UiState
 import com.example.mybookscomposeapp.ui.ViewModelFactory
 import com.example.mybookscomposeapp.ui.components.CustomTopAppBar
 import com.example.mybookscomposeapp.ui.components.TextField
@@ -69,60 +66,60 @@ fun AddBookScreen(
                     R.string.text_field_hint,
                     stringResource(R.string.book_cover_url_label)
                 ),
-                input = bookCoverURL,
-                onValueChange = { newInput ->
-                    bookCoverURL = newInput
-                })
+                input = bookCoverURL
+            ) { newInput ->
+                bookCoverURL = newInput
+            }
             TextField(
                 label = stringResource(R.string.book_title_label),
                 hint = stringResource(
                     R.string.text_field_hint,
                     stringResource(R.string.book_title_label)
                 ),
-                input = bookTitle,
-                onValueChange = { newInput ->
-                    bookTitle = newInput
-                })
+                input = bookTitle
+            ) { newInput ->
+                bookTitle = newInput
+            }
             TextField(
                 label = stringResource(R.string.author_name_label),
                 hint = stringResource(
                     R.string.text_field_hint,
                     stringResource(R.string.author_name_label)
                 ),
-                input = authorName,
-                onValueChange = { newInput ->
-                    authorName = newInput
-                })
+                input = authorName
+            ) { newInput ->
+                authorName = newInput
+            }
             TextField(
                 label = stringResource(R.string.publication_year_label),
                 hint = stringResource(
                     R.string.text_field_hint,
                     stringResource(R.string.publication_year_label)
                 ),
-                input = publicationYear,
-                onValueChange = { newInput ->
-                    publicationYear = newInput
-                })
+                input = publicationYear
+            ) { newInput ->
+                publicationYear = newInput
+            }
             TextField(
                 label = stringResource(R.string.category_label),
                 hint = stringResource(
                     R.string.text_field_hint,
                     stringResource(R.string.category_label)
                 ),
-                input = category,
-                onValueChange = { newInput ->
-                    category = newInput
-                })
+                input = category
+            ) { newInput ->
+                category = newInput
+            }
             TextField(
                 label = stringResource(R.string.synopsis_label),
                 hint = stringResource(
                     R.string.text_field_hint,
                     stringResource(R.string.synopsis_label)
                 ),
-                input = synopsis,
-                onValueChange = { newInput ->
-                    synopsis = newInput
-                })
+                input = synopsis
+            ) { newInput ->
+                synopsis = newInput
+            }
             Button(
                 onClick = {
                     addBookViewModel.saveBook(

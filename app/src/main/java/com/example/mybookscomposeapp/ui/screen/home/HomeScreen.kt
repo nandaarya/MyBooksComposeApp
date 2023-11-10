@@ -26,7 +26,6 @@ import com.example.mybookscomposeapp.ui.components.BookList
 
 @Composable
 fun HomeScreen(
-    modifier: Modifier = Modifier,
     homeViewModel: HomeViewModel = viewModel(
         factory = ViewModelFactory(Injection.provideRepository(LocalContext.current))
     ),

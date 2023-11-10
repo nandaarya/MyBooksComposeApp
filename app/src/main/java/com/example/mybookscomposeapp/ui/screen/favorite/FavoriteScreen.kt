@@ -2,14 +2,12 @@ package com.example.mybookscomposeapp.ui.screen.favorite
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mybookscomposeapp.di.Injection
 import com.example.mybookscomposeapp.ui.UiState
 import com.example.mybookscomposeapp.ui.ViewModelFactory
 import com.example.mybookscomposeapp.ui.components.BookList
-import com.example.mybookscomposeapp.ui.screen.detail.DetailContent
 
 @Composable
 fun FavoriteScreen(
@@ -32,6 +30,4 @@ fun FavoriteScreen(
             is UiState.Error -> {}
         }
     }
-//    val favoriteBooks by favoriteViewModel.favoriteBooks.collectAsState()
-
 }
