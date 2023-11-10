@@ -70,8 +70,8 @@ class Repository(
 
     fun getFavoriteBook(): List<Book> = favoriteBookDao.getAllFavoriteUser()
 
-    fun isFavorite(id: Int): Boolean =
-        favoriteBookDao.isFavorite(id)
+    fun isFavorite(bookId: Long): Boolean =
+        favoriteBookDao.isFavorite(bookId)
 
     companion object {
         @Volatile

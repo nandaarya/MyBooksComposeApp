@@ -13,9 +13,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -45,10 +42,13 @@ fun DetailScreen(
     ),
     navigateBack: () -> Unit
 ) {
+    val isBookSaved by detailViewModel.isBookSaved.collectAsState()
+
     detailViewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
         when (uiState) {
             is UiState.Loading -> {
                 detailViewModel.getBookById(bookId)
+                detailViewModel.isFavorite(bookId)
             }
 
             is UiState.Success -> {
@@ -60,6 +60,10 @@ fun DetailScreen(
                     data.publicationYear,
                     data.category,
                     data.synopsis,
+                    isBookSaved,
+                    setFavorite = {
+                        detailViewModel.saveFavoriteBook(data)
+                    },
                     onBackClick = navigateBack
                 )
             }
@@ -77,9 +81,10 @@ fun DetailContent(
     publicationYear: String,
     category: String,
     synopsis: String,
+    isBookSaved: Boolean,
+    setFavorite: () -> Unit,
     onBackClick: () -> Unit,
 ) {
-    var isBookSaved by remember { mutableStateOf(false) }
 
     Column {
         CustomTopAppBar(screenName = R.string.detail_screen, onBackClick)
@@ -91,9 +96,7 @@ fun DetailContent(
             Box(
                 modifier = Modifier.fillMaxWidth()
             ) {
-                IconButton(onClick = {
-                    isBookSaved = !isBookSaved
-                }, modifier = Modifier.align(Alignment.CenterEnd)) {
+                IconButton(onClick = setFavorite, modifier = Modifier.align(Alignment.CenterEnd)) {
                     Icon(
                         painter = painterResource(
                             id = if (isBookSaved) R.drawable.ic_baseline_favorite_24
